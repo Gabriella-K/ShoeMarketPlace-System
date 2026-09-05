@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Edit Shoe</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{shoeBean.id}"/>
+        <f:viewAction action="#{shoeBean.loadShoe}"/>
+    </f:metadata>
+
+    <div class="navbar">
+        <h:link outcome="index" value="SoleLink" styleClass="brand"/>
+        <h:link outcome="VendorList" value="Vendors"/>
+        <h:link outcome="ShoeList" value="Shoes"/>
+    </div>
+
+    <div class="form-container">
+        <h2>Edit Shoe Listing</h2>
+        <h:messages styleClass="error-messages" layout="table"/>
+
+        <h:form>
+            <div class="form-row">
+                <label>Vendor</label>
+                <h:selectOneMenu value="#{shoeBean.selectedVendorId}" required="true">
+                    <f:selectItems value="#{shoeBean.allVendors}" var="v"
+                                   itemLabel="#{v.shopName}" itemValue="#{v.id}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <div class="form-row">
+                <label>Brand</label>
+                <h:inputText id="brand" value="#{shoeBean.shoe.brand}" required="true">
+                    <f:validateLength minimum="2" maximum="50"/>
+                </h:inputText>
+                <h:message for="brand" style="color:#b47c74; display:block;"/>
+            </div>
+
+            <div class="form-row">
+                <label>Size</label>
+                <h:inputText value="#{shoeBean.shoe.size}" required="true">
+                    <f:validateLongRange minimum="30" maximum="50"/>
+                </h:inputText>
+            </div>
+
+            <div class="form-row">
+                <label>Price (RWF)</label>
+                <h:inputText value="#{shoeBean.shoe.price}" required="true"/>
+            </div>
+
+            <div class="form-row">
+                <label>Condition</label>
+                <h:selectOneMenu value="#{shoeBean.shoe.condition}" required="true">
+                    <f:selectItems value="#{shoeBean.conditions}" var="c"
+                                   itemLabel="#{c}" itemValue="#{c}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <h:commandButton value="Update Shoe" action="#{shoeBean.update}" styleClass="btn-primary"/>
+        </h:form>
+    </div>
+</h:body>
+</html>

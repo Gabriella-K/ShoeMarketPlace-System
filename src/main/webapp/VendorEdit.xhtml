@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Edit Vendor</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{vendorBean.id}"/>
+        <f:viewAction action="#{vendorBean.loadVendor}"/>
+    </f:metadata>
+
+    <div class="navbar">
+        <h:link outcome="index" value="SoleLink" styleClass="brand"/>
+        <h:link outcome="VendorList" value="Vendors"/>
+        <h:link outcome="ShoeList" value="Shoes"/>
+    </div>
+
+    <div class="form-container">
+        <h2>Edit Vendor</h2>
+        <h:messages styleClass="error-messages" layout="table"/>
+
+        <h:form>
+            <div class="form-row">
+                <label>Shop Name</label>
+                <h:inputText value="#{vendorBean.vendor.shopName}" required="true">
+                    <f:validateLength minimum="2" maximum="100"/>
+                </h:inputText>
+            </div>
+
+            <div class="form-row">
+                <label>Phone</label>
+                <h:inputText value="#{vendorBean.vendor.phone}" required="true">
+                    <f:validateRegex pattern="^(\+250|0)7[0-9]{8}$"/>
+                </h:inputText>
+            </div>
+
+            <div class="form-row">
+                <label>Email</label>
+                <h:inputText value="#{vendorBean.vendor.email}" required="true"/>
+            </div>
+
+            <div class="form-row">
+                <label>Location</label>
+                <h:inputText value="#{vendorBean.vendor.location}" required="true"/>
+            </div>
+
+            <h:commandButton value="Update Vendor" action="#{vendorBean.update}" styleClass="btn-primary"/>
+        </h:form>
+    </div>
+</h:body>
+</html>

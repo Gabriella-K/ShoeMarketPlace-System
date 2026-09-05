@@ -1,0 +1,204 @@
+/* Palette: #bfa78a tan | #1f312e dark teal | #5e6546 olive | #8e5118 rust | #b47c74 dusty rose */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f6f2ec;
+    margin: 0;
+    color: #1f312e;
+}
+
+.navbar {
+    background-color: #1f312e;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar a.brand {
+    color: #bfa78a;
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.navbar a {
+    color: #f6f2ec;
+    text-decoration: none;
+    margin-right: 22px;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #b47c74;
+}
+
+/* ---- Hero / welcome section ---- */
+.hero {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.hero h2 {
+    color: #1f312e;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #5e6546;
+    font-size: 16px;
+}
+
+.hero-cards {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-card {
+    background: white;
+    width: 260px;
+    padding: 26px 22px;
+    border-radius: 8px;
+    border-top: 4px solid #8e5118;
+    text-align: left;
+}
+
+.hero-card h3 {
+    margin-top: 0;
+    color: #1f312e;
+}
+
+.hero-card p {
+    color: #5e6546;
+    font-size: 14px;
+    min-height: 40px;
+}
+
+.hero-card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #ffffff;
+    background-color: #8e5118;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.hero-card a:hover {
+    background-color: #74400f;
+}
+
+/* ---- Forms ---- */
+.form-container {
+    width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e4dccd;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #1f312e;
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1f312e;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    width: 100%;
+    padding: 9px;
+    box-sizing: border-box;
+    border: 1px solid #d8cdbb;
+    border-radius: 5px;
+    background-color: #fdfcfa;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #8e5118;
+}
+
+.btn-primary {
+    background-color: #8e5118;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.btn-primary:hover {
+    background-color: #74400f;
+}
+
+/* ---- Tables ---- */
+.table-container {
+    width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e4dccd;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #e4dccd;
+    padding: 10px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #1f312e;
+    color: #f6f2ec;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f6f2ec;
+}
+
+.data-table a {
+    color: #8e5118;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Condition badges */
+.badge {
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.error-messages {
+    color: #b47c74;
+    font-weight: bold;
+}

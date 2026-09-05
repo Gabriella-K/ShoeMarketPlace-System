@@ -1,0 +1,6 @@
+# Copy this file to db.properties (same folder) and fill in your local database credentials.
+# db.properties is in .gitignore and will never be committed.
+
+db.url=jdbc:postgresql://localhost:5432/shoemarket
+db.user=postgres
+db.password=your_password_here

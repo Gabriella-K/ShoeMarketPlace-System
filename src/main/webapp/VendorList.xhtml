@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Vendors</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <div class="navbar">
+        <h:link outcome="index" value="SoleLink" styleClass="brand"/>
+        <h:link outcome="VendorList" value="Vendors"/>
+        <h:link outcome="ShoeList" value="Shoes"/>
+    </div>
+
+    <div class="table-container">
+        <h2 style="text-align:center; color:#1f312e;">All Vendors</h2>
+
+        <p style="text-align:right;">
+            <h:link outcome="VendorRegister" value="+ Add Vendor" styleClass="btn-primary"
+                    style="display:inline-block; text-decoration:none; padding:8px 16px;"/>
+        </p>
+
+        <h:dataTable value="#{vendorBean.allVendors}" var="v" styleClass="data-table">
+            <h:column>
+                <f:facet name="header">Shop Name</f:facet>
+                #{v.shopName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Phone</f:facet>
+                #{v.phone}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{v.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Location</f:facet>
+                #{v.location}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:link outcome="VendorEdit" value="Edit">
+                    <f:param name="id" value="#{v.id}"/>
+                </h:link>
+                &#160;|&#160;
+                <h:form style="display:inline;">
+                    <h:commandLink value="Delete" action="#{vendorBean.delete(v.id)}"
+                                   onclick="return confirm('Delete this vendor?');"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+    </div>
+</h:body>
+</html>

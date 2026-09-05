@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Shoes</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <div class="navbar">
+        <h:link outcome="index" value="SoleLink" styleClass="brand"/>
+        <h:link outcome="VendorList" value="Vendors"/>
+        <h:link outcome="ShoeList" value="Shoes"/>
+    </div>
+
+    <div class="table-container">
+        <h2 style="text-align:center; color:#1f312e;">All Shoe Listings</h2>
+
+        <p style="text-align:right;">
+            <h:link outcome="ShoeRegister" value="+ Add Shoe" styleClass="btn-primary"
+                    style="display:inline-block; text-decoration:none; padding:8px 16px;"/>
+        </p>
+
+        <h:dataTable value="#{shoeBean.allShoes}" var="s" styleClass="data-table">
+            <h:column>
+                <f:facet name="header">Brand</f:facet>
+                #{s.brand}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Size</f:facet>
+                #{s.size}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{s.price} RWF
+            </h:column>
+            <h:column>
+                <f:facet name="header">Condition</f:facet>
+                <!-- Inline CSS: badge color set directly per-row based on condition -->
+                <span class="badge"
+                      style="#{s.condition == 'NEW' ? 'background-color:#5e6546;' : 'background-color:#b47c74;'}">
+                    #{s.condition}
+                </span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Vendor</f:facet>
+                #{s.vendor.shopName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:link outcome="ShoeEdit" value="Edit">
+                    <f:param name="id" value="#{s.id}"/>
+                </h:link>
+                &#160;|&#160;
+                <h:form style="display:inline;">
+                    <h:commandLink value="Delete" action="#{shoeBean.delete(s.id)}"
+                                   onclick="return confirm('Delete this shoe?');"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+    </div>
+</h:body>
+</html>

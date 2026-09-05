@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+<h:head>
+    <title>SoleLink - Shoe Marketplace</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <style>
+        /* internal CSS: page-specific tweak to the hero title */
+        .hero h2 { letter-spacing: 0.5px; }
+    </style>
+</h:head>
+<h:body>
+    <div class="navbar">
+        <h:link outcome="index" value="SoleLink" styleClass="brand"/>
+        <h:link outcome="VendorList" value="Vendors"/>
+        <h:link outcome="ShoeList" value="Shoes"/>
+    </div>
+
+    <div class="hero">
+        <h2>Welcome to SoleLink</h2>
+        <p>Rwanda's shoe vendors, one searchable catalog. Manage vendors and browse listings below.</p>
+
+        <div class="hero-cards">
+            <div class="hero-card">
+                <h3>Vendors</h3>
+                <p>Register shoe vendors and manage their shop details and contact info.</p>
+                <h:link outcome="VendorList" value="View Vendors"/>
+            </div>
+            <div class="hero-card">
+                <h3>Shoes</h3>
+                <p>List new shoe inventory and browse everything currently available.</p>
+                <h:link outcome="ShoeList" value="View Shoes"/>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
